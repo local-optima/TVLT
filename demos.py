@@ -26,8 +26,9 @@ def MAE_model(model_path=''):
     config = MAE_config()
     model = getattr(tvlt, 'mae_vit_base_patch16_dec512d8b')(
         config=config).float().eval()
-    ckpt_path = load_from_hub(repo_id="TVLT/models", filename="TVLT.ckpt")
-    model.load_state_dict(torch.load(ckpt_path))
+    if not model_path:
+        model_path = load_from_hub(repo_id="TVLT/models", filename="TVLT.ckpt")
+    model.load_state_dict(torch.load(model_path), strict=False)
     return model
 
 

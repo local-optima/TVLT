@@ -20,6 +20,9 @@ from huggingface_sb3 import load_from_hub
 class Transformer(pl.LightningModule):
     def __init__(self, config, model_type='transformer'):
         super().__init__()
+        
+        # add by xuhao
+        self.test_step_outputs = []
 
         self.model_type = model_type
         self.learning_rate = config["learning_rate"]
@@ -171,19 +174,23 @@ class Transformer(pl.LightningModule):
         total_loss = sum([v for k, v in output.items() if "loss" in k]) 
         return total_loss
     
-    def training_epoch_end(self, outs):
+    def on_train_epoch_end(self):
         model_utils.epoch_wrapup(self)
 
     def validation_step(self, batch, batch_idx):
         model_utils.set_task(self)
         output = self(batch)   
                 
-    def validation_epoch_end(self, outs):
+    def on_validation_epoch_end(self):
         model_utils.epoch_wrapup(self)
 
     def test_step(self, batch, batch_idx):
         model_utils.set_task(self)
         output = self(batch)
+        
+        # add by xuhao
+        self.test_step_outputs.append(output)
+        
         ret = dict()
 
         if self.hparams.config["loss_names"]["vqa"] > 0:
@@ -191,12 +198,16 @@ class Transformer(pl.LightningModule):
 
         return ret
 
-    def test_epoch_end(self, outs):
+    def on_test_epoch_end(self):
         model_name = self.hparams.config["load_path"].split("/")[-1][:-5]
 
         if self.hparams.config["loss_names"]["vqa"] > 0:
-            objectives.vqa_test_wrapup(outs, model_name)
+            objectives.vqa_test_wrapup(self.test_step_outputs, model_name)
         model_utils.epoch_wrapup(self)
+        
+        # add by xuhao
+        self.test_step_outputs.clear()
+        
 
     def configure_optimizers(self):
         optimizer = AdamW(self.parameters(), lr=self.learning_rate, eps=1e-8, betas=(0.9, 0.98), weight_decay=self.weight_decay)

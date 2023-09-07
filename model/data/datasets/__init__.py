@@ -6,3 +6,4 @@ from .vqa_dataset import VQADataset
 from .mosei_dataset import MOSEIDataset
 from .moseiemo_dataset import MOSEIEMODataset
 from .msrvtt_dataset import MsrvttDataset
+from .hdtf_dataset import HDTFDataset

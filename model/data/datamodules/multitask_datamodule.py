@@ -1,7 +1,7 @@
 import functools
 
 from pytorch_lightning import LightningDataModule
-from pytorch_lightning.trainer.supporters import CombinedLoader
+from pytorch_lightning.utilities import CombinedLoader
 
 from torch.utils.data import DataLoader
 from torch.utils.data.dataset import ConcatDataset

@@ -91,6 +91,9 @@ def config():
     load_local_path = ""
     load_hub_path = ""
     num_workers = 32
+    
+    # add by xuhao
+    gpus=[0,1,2,3]
 
     
 @ex.named_config
