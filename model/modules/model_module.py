@@ -172,6 +172,15 @@ class Transformer(pl.LightningModule):
         model_utils.set_task(self)     
         output = self(batch)
         total_loss = sum([v for k, v in output.items() if "loss" in k]) 
+        
+        # 记录总损失值
+        self.log_dict({'total_loss': total_loss}, on_step=True, on_epoch=True,  prog_bar=True, logger=True)
+
+        # 记录每个独立的损失值
+        for key, value in output.items():
+            if "loss" in key:
+                self.log_dict({key: value}, on_step=True, on_epoch=True,  prog_bar=True, logger=True)
+        
         return total_loss
     
     def on_train_epoch_end(self):

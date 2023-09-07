@@ -184,10 +184,10 @@ class RawVideoExtractor():
                 start, end = time_to_indices(video, timestamp)
                 end = min(len(video)-1, end)
                 start = min(start, end-1)
-                downsamlp_indices = np.linspace(start, end, self.max_frames, endpoint=False).astype(np.int)
+                downsamlp_indices = np.linspace(start, end, self.max_frames, endpoint=False).astype(int)
 
             else:                       
-                downsamlp_indices = np.linspace(0, len(video), self.max_frames, endpoint=False).astype(np.int)
+                downsamlp_indices = np.linspace(0, len(video), self.max_frames, endpoint=False).astype(int)
 
             video = video.get_batch(downsamlp_indices).asnumpy()
             video = crop_image_only_outside(video)
@@ -223,9 +223,9 @@ class RawVideoExtractor():
                 start, end = time_to_indices(video, timestamp)            
                 end = min(len(video)-1, end)
                 start = min(start, end-1)
-                downsamlp_indices = np.linspace(start, end, self.max_frames, endpoint=False).astype(np.int)
+                downsamlp_indices = np.linspace(start, end, self.max_frames, endpoint=False).astype(int)
             else:            
-                downsamlp_indices = np.linspace(0, len(video), self.max_frames, endpoint=False).astype(np.int)
+                downsamlp_indices = np.linspace(0, len(video), self.max_frames, endpoint=False).astype(int)
 
             video = video.get_batch(downsamlp_indices).asnumpy()
             video = crop_image_only_outside(video)
@@ -281,7 +281,7 @@ def load_video(path, num_frames=8, timestamp=None):
         downsamlp_indices = np.random.choice(list(range(start, end)), num_frames)
 
     else:                       
-        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(np.int)
+        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(int)
 
     video = video.get_batch(downsamlp_indices).asnumpy()
     video = crop_image_only_outside(video)
@@ -305,7 +305,7 @@ def load_video_raw(path, num_frames=8, timestamp=None):
         downsamlp_indices = np.random.choice(list(range(start, end)), num_frames)
 
     else:                       
-        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(np.int)
+        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(int)
 
     video = video.get_batch(downsamlp_indices).asnumpy()
     video = crop_image_only_outside(video)
@@ -325,7 +325,7 @@ def load_video_audio(path, num_frames=8, sr=44100, timestamp=None):
 
         downsamlp_indices = np.random.choice(list(range(start, end)), num_frames)
     else:            
-        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(np.int)
+        downsamlp_indices = np.linspace(0, len(video), num_frames, endpoint=False).astype(int)
 
     video = video.get_batch(downsamlp_indices).asnumpy()
     video = crop_image_only_outside(video)
