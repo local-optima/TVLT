@@ -1,4 +1,4 @@
-from model.data.datasets import YTTemporalDataset
+from TVLT.model.data.datasets import YTTemporalDataset
 from .datamodule_base import BaseDataModule
 
 

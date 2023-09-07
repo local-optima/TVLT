@@ -1,4 +1,4 @@
-from model.data.datasets import MOSEIDataset
+from TVLT.model.data.datasets import MOSEIDataset
 from .datamodule_base import BaseDataModule
 
 

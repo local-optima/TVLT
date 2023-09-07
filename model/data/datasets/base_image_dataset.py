@@ -8,7 +8,7 @@ import json
 
 from PIL import Image
 import numpy as np
-from model.data.datasets.rawvideo_utils import RawVideoExtractor
+from TVLT.model.data.datasets.rawvideo_utils import RawVideoExtractor
 
 class BaseImageDataset(torch.utils.data.Dataset):
     def __init__(

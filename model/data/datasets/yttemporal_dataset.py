@@ -7,7 +7,7 @@ import json
 
 import pandas as pd
 import numpy as np
-from model.data.datasets.rawvideo_utils import RawVideoExtractor
+from TVLT.model.data.datasets.rawvideo_utils import RawVideoExtractor
 from .base_video_dataset import BaseVideoDataset
 
 

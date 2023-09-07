@@ -11,7 +11,7 @@ import torch.nn.functional as F
 from torch.utils.data.distributed import DistributedSampler
 from einops import rearrange
 
-from model.modules.dist_utils import all_gather
+from TVLT.model.modules.dist_utils import all_gather
 
 def cost_matrix_cosine(x, y, eps=1e-5):
     """Compute cosine distnace across every pairs of x, y (batched)

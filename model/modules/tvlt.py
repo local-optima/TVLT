@@ -7,7 +7,7 @@ from tqdm import tqdm
 
 from timm.models.vision_transformer import PatchEmbed
 from timm.models.registry import register_model
-from model.modules import heads, objectives
+from TVLT.model.modules import heads, objectives
 
 from transformers.models.bert.modeling_bert import BertConfig, BertEmbeddings
 

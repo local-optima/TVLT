@@ -1,4 +1,4 @@
-from model.data.datasets import MsrvttDataset
+from TVLT.model.data.datasets import MsrvttDataset
 from .datamodule_base import BaseDataModule
 
 

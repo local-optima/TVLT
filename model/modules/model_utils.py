@@ -1,9 +1,9 @@
 import torch
 import random
 
-from model.gadgets.my_metrics import Accuracy, VQAScore, Scalar
+from TVLT.model.gadgets.my_metrics import Accuracy, VQAScore, Scalar
 
-from model.modules.objectives import compute_vrar_recall
+from TVLT.model.modules.objectives import compute_vrar_recall
 
 def set_metrics(pl_module):
     for split in ["train", "val"]:

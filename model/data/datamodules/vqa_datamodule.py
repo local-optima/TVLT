@@ -1,4 +1,4 @@
-from model.data.datasets import VQADataset
+from TVLT.model.data.datasets import VQADataset
 from .datamodule_base import BaseDataModule
 
 

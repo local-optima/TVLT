@@ -11,8 +11,8 @@ import pytorch_lightning as pl
 
 from transformers.optimization import AdamW
 from transformers import get_cosine_schedule_with_warmup
-from model.modules import heads, objectives, model_utils
-import model.modules.tvlt as tvlt
+from TVLT.model.modules import heads, objectives, model_utils
+import TVLT.model.modules.tvlt as tvlt
 
 from huggingface_sb3 import load_from_hub
 

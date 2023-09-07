@@ -3,9 +3,9 @@ import json
 import copy
 import pytorch_lightning as pl
 
-from model.config import ex
-from model.modules import Transformer
-from model.data.datamodules.multitask_datamodule import MTDataModule
+from TVLT.model.config import ex
+from TVLT.model.modules import Transformer
+from TVLT.model.data.datamodules.multitask_datamodule import MTDataModule
 import torch
 
 

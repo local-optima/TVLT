@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 
 import torch
 from huggingface_sb3 import load_from_hub
-import model.modules.tvlt as tvlt
+import TVLT.model.modules.tvlt as tvlt
 
 
 def MAE_config():
-    return {'exp_name': 'mae_vam', 'loss_names': {'vam': 1, 'vtm': 0, 'mae_audio': 1, 'mae_video': 1, 'vqa': 0, 'mlm': 0, 'mosei': 0, 'moseiemo': 0}, 'max_text_len': 40, 'tokenizer': 'bert-base-uncased', 'vocab_size': 30522, 'whole_word_masking': False, 'mlm_prob': 0.15, 'use_text': False, 'video_size': 224, 'video_only': False, 'max_frames': 64, 'num_frames': 1, 'use_video': True, 'audio_size': 1024, 'frequency_size': 128, 'max_audio_patches': 1020, 'mam_prob': 0.75, 'use_audio': True, 'audio_only': False, 'frame_masking': True, 'model_type': 'mae_vit_base_patch16_dec512d8b', 'patch_size': 16, 'audio_patch_size': [16, 16], 'hidden_size': 768, 'decoder_hidden_size': 512, 'num_heads': 12, 'num_layers': 12, 'mlp_ratio': 4, 'use_mae': True, 'drop_rate': 0.1}
+    return {'exp_name': 'mae_vam', 'loss_names': {'vatr': 0, 'vam': 1, 'vtm': 0, 'mae_audio': 1, 'mae_video': 1, 'vqa': 0, 'mlm': 0, 'mosei': 0, 'moseiemo': 0}, 'max_text_len': 40, 'tokenizer': 'bert-base-uncased', 'vocab_size': 30522, 'whole_word_masking': False, 'mlm_prob': 0.15, 'use_text': False, 'video_size': 224, 'video_only': False, 'max_frames': 64, 'num_frames': 1, 'use_video': True, 'audio_size': 1024, 'frequency_size': 128, 'max_audio_patches': 1020, 'mam_prob': 0.75, 'use_audio': True, 'audio_only': False, 'frame_masking': True, 'model_type': 'mae_vit_base_patch16_dec512d8b', 'patch_size': 16, 'audio_patch_size': [16, 16], 'hidden_size': 768, 'decoder_hidden_size': 512, 'num_heads': 12, 'num_layers': 12, 'mlp_ratio': 4, 'use_mae': True, 'drop_rate': 0.1}
 
 
 def MOSEI_sentiment_config():

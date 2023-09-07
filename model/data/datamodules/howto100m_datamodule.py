@@ -1,4 +1,4 @@
-from model.data.datasets import Howto100mDataset
+from TVLT.model.data.datasets import Howto100mDataset
 from .datamodule_base import BaseDataModule
 
 
